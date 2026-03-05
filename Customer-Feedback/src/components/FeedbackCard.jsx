@@ -1,42 +1,38 @@
 function FeedbackCard({ feedback }) {
 
+    const { name, email, category, priority, description, screenshot, steps, suggestions, timestamp } = feedback;
+
+    const renderList = (title, items) =>
+        items.length > 0 && (
+            <div>
+                <h4>{title}</h4>
+                <ul>
+                    {items.map((item, i) => (
+                        <li key={i}>{item}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+
     return (
         <div className="feedback-card">
-            <h3>{feedback.name}</h3>
-            <p><strong>Email:</strong> {feedback.email}</p>
-            <span className={`badge ${feedback.priority.toLowerCase()}`}>
-                {feedback.category} - {feedback.priority}
+            <h3>{name}</h3>
+            <p><strong>Email:</strong> {email}</p>
+
+            <span className={`badge ${priority.toLowerCase()}`}>
+                {category} - {priority}
             </span>
 
-            <p>{feedback.description}</p>
+            <p>{description}</p>
 
-            {feedback.screenshot && (
-                <img src={feedback.screenshot} alt="Screenshot" className="preview" />
+            {screenshot && (
+                <img src={screenshot} alt="Screenshot" className="preview" />
             )}
 
-            {feedback.steps.length > 0 && (
-                <div>
-                    <h4>Steps:</h4>
-                    <ul>
-                        {feedback.steps.map((step, i) => (
-                            <li key={i}>{step}</li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+            {renderList("Steps:", steps)}
+            {renderList("Suggestions:", suggestions)}
 
-            {feedback.suggestions.length > 0 && (
-                <div>
-                    <h4>Suggestions:</h4>
-                    <ul>
-                        {feedback.suggestions.map((sug, i) => (
-                            <li key={i}>{sug}</li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-
-            <small>{feedback.timestamp}</small>
+            <small>{timestamp}</small>
         </div>
     );
 }
