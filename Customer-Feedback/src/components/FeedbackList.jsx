@@ -1,15 +1,20 @@
 import FeedbackCard from "./FeedbackCard";
 
 function FeedbackList({ feedbacks }) {
+
+    if (feedbacks.length === 0) {
+        return (
+            <div className="dashboard">
+                <p>No feedback submitted yet.</p>
+            </div>
+        );
+    }
+
     return (
         <div className="dashboard">
-            {feedbacks.length === 0 ? (
-                <p>No feedback submitted yet.</p>
-            ) : (
-                feedbacks.map((fb, index) => (
-                    <FeedbackCard key={index} feedback={fb} />
-                ))
-            )}
+            {feedbacks.map(function (fb, index) {
+                return <FeedbackCard key={index} feedback={fb} />;
+            })}
         </div>
     );
 }
