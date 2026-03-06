@@ -34,5 +34,3 @@ function DynamicList({ label, items, setItems }) {
 }
 
 export default DynamicList;
-
-

@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import DynamicList from "./ DynamicList";
+import DynamicList from "./DynamicList";
 
 function FeedbackForm({ addFeedback }) {
 
@@ -93,7 +93,7 @@ function FeedbackForm({ addFeedback }) {
             <DynamicList label="Steps to Reproduce" items={steps} setItems={setSteps} />
             <DynamicList label="Suggested Improvements" items={suggestions} setItems={setSuggestions} />
 
-            <button type="submit">Submit Feedback</button>
+            <button type="submit" className="sub-btn">Submit Feedback</button>
         </form>
     );
 }
