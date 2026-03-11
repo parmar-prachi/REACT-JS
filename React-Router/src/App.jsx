@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import AddBook from './pages/AddBook';
 import ViewBook from "./pages/ViewBook";
 import EditBook from './pages/EditBook';
+import ViewDetails from "./pages/ViewDetails";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/addbook" element={<AddBook books={books} setBooks={setBooks} />} />
         <Route path="/viewbook" element={<ViewBook books={books} setBooks={setBooks} />} />
         <Route path="/edit/:id" element={<EditBook books={books} setBooks={setBooks} />} />
+        <Route path="/details/:id" element={<ViewDetails books={books} />} />
 
       </Routes>
     </BrowserRouter>

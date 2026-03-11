@@ -1,7 +1,8 @@
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";   
+import { Link } from "react-router-dom";
+
 
 function ViewBook({ books, setBooks }) {
 
@@ -14,8 +15,8 @@ function ViewBook({ books, setBooks }) {
         <Container className="mt-5">
             <h2 className="text-center mb-4">Available Books</h2>
 
-            <Table striped bordered hover responsive>
-                <thead className="table-dark">
+            <Table bordered hover responsive className="book-table">
+                <thead >
                     <tr>
                         <th>ID</th>
                         <th>Image</th>
@@ -24,6 +25,7 @@ function ViewBook({ books, setBooks }) {
                         <th>Type</th>
                         <th>Publisher</th>
                         <th>Price</th>
+                        <th>View-Details</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -57,6 +59,12 @@ function ViewBook({ books, setBooks }) {
                                 <td>₹ {book.price}</td>
 
                                 <td>
+                                    <Link to={`/details/${book.b_id}`} className="view-btn">
+                                        View Details
+                                    </Link>
+                                </td>
+                                <td>
+
                                     <Button
                                         as={Link}
                                         to={`/edit/${book.b_id}`}

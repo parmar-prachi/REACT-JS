@@ -8,7 +8,7 @@ function EditBook({ books, setBooks }) {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const book = books.find((b) => b.b_id === Number(id));
+    const book = books.find((b) => String(b.b_id) === String(id));
 
     if (!book) {
         return <h2 className="text-center mt-5">Book Not Found</h2>;
@@ -22,7 +22,7 @@ function EditBook({ books, setBooks }) {
         e.preventDefault();
 
         const updatedBooks = books.map((b) =>
-            b.b_id === Number(id)
+            String(b.b_id) === String(id)
                 ? { ...b, title, author, price }
                 : b
         );

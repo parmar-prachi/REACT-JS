@@ -1,11 +1,11 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import img1 from '../assets/images/slide1.png'
 import img2 from '../assets/images/slide2.png'
+import { Link } from "react-router-dom";
 
 function Home({ books }) {
 
@@ -33,43 +33,45 @@ function Home({ books }) {
 
             <Container fluid className="book-section mt-5">
                 <Container>
-                <h2 className="text-center mb-4">Our Books</h2>
+                    <h2 className="text-center mb-4">Our Books</h2>
 
-                <Row>
-                    {books.map((book) => (
-                        <Col md={4} className="mb-4" key={book.b_id}>
-                            <Card className="h-100 h-100 book-card">
+                    <Row>
+                        {books.map((book) => (
+                            <Col md={4} className="mb-4" key={book.b_id}>
+                                <Card className="h-100 h-100 book-card">
 
-                                {/* Book Image */}
-                                <Card.Img
-                                    variant="top"
-                                    src={book.image}
-                                    style={{ height: "400px", objectFit: "cover" }}
-                                />
+                                    {/* Book Image */}
+                                    <Card.Img
+                                        variant="top"
+                                        src={book.image}
+                                        style={{ height: "400px", objectFit: "cover" }}
+                                    />
 
-                                <Card.Body>
-                                    <Card.Title>{book.title}</Card.Title>
+                                    <Card.Body>
+                                        <Card.Title>{book.title}</Card.Title>
 
-                                    <Card.Text>
-                                        <strong>Author:</strong> {book.author} <br />
-                                        <strong>Price:</strong> ₹{book.price}
-                                    </Card.Text>
+                                        <Card.Text>
+                                            <strong>Author:</strong> {book.author} <br />
+                                            <strong>Price:</strong> ₹{book.price}
+                                        </Card.Text>
 
-                                    {/* Short Description */}
-                                    <Card.Text style={{ fontSize: "14px" }}>
-                                        {book.des.substring(0, 120)}...
-                                    </Card.Text>
+                                        {/* Short Description */}
+                                        <Card.Text style={{ fontSize: "14px" }}>
+                                            {book.des.substring(0, 120)}...
+                                        </Card.Text>
 
-                                    <Button className='custom-btn'>
-                                        View Details
-                                    </Button>
-
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
+                                        <Link
+                                            to={`/details/${book.b_id}`}
+                                            className="custom-btn"
+                                        >
+                                            View Details
+                                        </Link>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
             </Container>
         </>
     );

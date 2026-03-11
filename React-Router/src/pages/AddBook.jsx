@@ -2,9 +2,10 @@ import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 function AddBook({ books, setBooks }) {
-
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         b_id:"",
         title: "",
@@ -47,6 +48,7 @@ function AddBook({ books, setBooks }) {
             image: "",
             des: ""
         });
+        navigate("/"); 
     };
 
     return (

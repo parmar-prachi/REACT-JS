@@ -6,7 +6,7 @@ import logo from '../assets/images/logo.png'
 
 function Nav_bar() {
     return (
-        <Navbar bg="light" data-bs-theme="light">
+        <Navbar>
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     <img
@@ -18,9 +18,9 @@ function Nav_bar() {
                     />
                 </Navbar.Brand>
                 <Nav className="ms-auto">
-                    <Nav.Link as={Link} to="/">Home</Nav.Link>
-                    <Nav.Link as={Link} to="/addbook">Add Book</Nav.Link>
-                    <Nav.Link as={Link} to="/viewbook">View Books</Nav.Link>
+                    <Nav.Link className="nav-text" as={Link} to="/">Home</Nav.Link>
+                    <Nav.Link className="nav-text" as={Link} to="/addbook">Add Book</Nav.Link>
+                    <Nav.Link className="nav-text" as={Link} to="/viewbook">View Books</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
