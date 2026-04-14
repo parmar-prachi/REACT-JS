@@ -1,0 +1,18 @@
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database"; 
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCyGS8LyiE8t08N4eIOIoBHAAkmiU6W1t8",
+    authDomain: "product-website-c3385.firebaseapp.com",
+
+    databaseURL: "https://product-website-c3385-default-rtdb.asia-southeast1.firebasedatabase.app/",
+
+    projectId: "product-website-c3385",
+    storageBucket: "product-website-c3385.firebasestorage.app",
+    messagingSenderId: "76699674023",
+    appId: "1:76699674023:web:ca107fc5d6969e97734282",
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getDatabase(app); 
